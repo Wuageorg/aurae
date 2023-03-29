@@ -65,5 +65,5 @@ export function createClient(opts: CreateClient = { kind: "default" }): Promise<
         }
     }
     // @ts-ignore
-    return Deno[Deno.internal].core.opAsync("as__client_new", config);
+    return config.then(c => Deno[Deno.internal].core.opAsync("as__client_new", c));
 }
